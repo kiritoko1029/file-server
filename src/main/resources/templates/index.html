@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width: 25vw"> 文件名</th>
+        <th style="width: 25vw"> 最后修改日期</th>
+        <th style="width: 25vw"> 大小</th>
+        <th style="width: 25vw"> 描述</th>
+    </tr>
+    <tr>
+        <th colspan="5">
+            <hr>
+        </th>
+    </tr>
+    <tr th:each="dir:${dirs}" >
+        <td style="width: 25vw;text-align: left"><a th:href="${dir.getRelatePath()}" th:text="${dir.getName()}"></a></td>
+        <td style="width: 25vw;text-align: center" th:text="${dir.getModifyTime()}"></td>
+        <td style="width: 25vw;text-align: center" th:text="${dir.getSize()}" ></td>
+        <td style="width: 25vw;text-align: center" > -</td>
+    </tr>
+</table>
+<div th:if="${preDir} !=null">
+    <a th:href="${preDir}">parent</a>
+</div>
+<video style="height: 100%;width: 100%" src="/Downie/夏日重现 - 010 - 进入黑暗.mp4" controls="controls"></video>
+</body>
+</html>
